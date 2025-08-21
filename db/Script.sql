@@ -1,0 +1,25 @@
+DROP DATABASE IF EXISTS escola;
+
+CREATE DATABASE IF NOT EXISTS escola;
+
+CREATE TABLE turmas(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(50)
+);
+
+INSERT INTO turmas VALUES(1, 'Básica');
+INSERT INTO turmas VALUES(2, 'Intermediária');
+INSERT INTO turmas VALUES(3, 'Avançada');
+
+CREATE TABLE alunos(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL UNIQUE,
+	senha VARCHAR(255) NOT NULL,
+	turma_id INT NOT NULL,
+	FOREIGN KEY (turma_id) REFERENCES turmas(id)
+);
+
+SELECT * FROM turmas;
+SELECT * FROM alunos;
+
